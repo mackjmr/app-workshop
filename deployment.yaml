@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-workshop
+  labels:
+    app: app-workshop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-workshop
+  template:
+    metadata:
+      labels:
+        app: app-workshop
+    spec:
+      containers:
+      - name: app-workshop
+        image: mackjmr/app-workshop:latest
+        imagePullPolicy: Always
+        env:
+        - name: MY_NODE_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+        - name: OTEL_EXPORTER_OTLP_ENDPOINT
+          value: http://$(MY_NODE_IP):4317
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        - name: OTEL_RESOURCE_ATTRIBUTES
+          value: "k8s.pod.ip=$(POD_IP),service.name=app-workshop-<INSERT_WORKSHOP_NUM>"
