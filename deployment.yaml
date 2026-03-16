@@ -29,5 +29,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: status.podIP
+        - name: WORKSHOP_TEAM_NUM
+          value: "1111"
         - name: OTEL_RESOURCE_ATTRIBUTES
-          value: "k8s.pod.ip=$(POD_IP),service.name=app-workshop-<INSERT_WORKSHOP_NUM>"
+          value: "k8s.pod.ip=$(POD_IP),service.name=app-workshop-$(WORKSHOP_TEAM_NUM)"

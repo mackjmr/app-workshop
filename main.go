@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"os"
 	"time"
 
 	log "github.com/sirupsen/logrus"
@@ -108,7 +109,9 @@ func main() {
 	}()
 
 	meter = mp.Meter("workshop-meter")
-	counter, err = meter.Int64Counter("otel.workshop.metric")
+	teamNum := os.Getenv("WORKSHOP_TEAM_NUM")
+	metricName := "otel.workshop.metric" + "." + teamNum
+	counter, err = meter.Int64Counter(metricName)
 	if err != nil {
 		panic(err)
 	}
