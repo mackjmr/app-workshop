@@ -1,0 +1,1 @@
+The tagger does the tag lookup based on `container.id`. We don't have access to update the SDK to add this, so we need to find another way to get the `container.id`. You can find it in the docs https://github.com/DataDog/datadog-agent/tree/main/comp/otelcol/otlp/components/processor/infraattributesprocessor.

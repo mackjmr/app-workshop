@@ -1,0 +1,1 @@
+`deployment.environment` is the resource attribute equivalent to DD env. We translate `deployment.environment` to `env`

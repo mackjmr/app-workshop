@@ -1,0 +1,1 @@
+You can achieve this via a processor, list of processors can be found here: https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor.
