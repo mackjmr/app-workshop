@@ -1,1 +1,3 @@
 You can achieve this via a processor, list of processors can be found here: https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor.
+
+Make sure you passed a config to DDOT. It can be passed as a string in `datadog.otelCollector.config`. You can find a base config to enhance here: https://docs.datadoghq.com/opentelemetry/setup/ddot_collector/install/kubernetes_daemonset?tab=helm#configure-the-opentelemetry-collector
